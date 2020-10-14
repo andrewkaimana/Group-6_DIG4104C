@@ -1,0 +1,87 @@
+/* variables */
+:root {
+    --primary: #222A34;
+    --white: #ffffff;
+    --description: #4F4F4F;
+    --gray: #EEEEEE;
+    --accent: #FFB902;
+    --shadow: rgb(0 0 0 / 0.12);
+    -webkit-overflow-scrolling:touch;
+}
+
+/* typography */
+:root {
+    font-size: 12px;
+    font-family: sans-serif;
+    color: var(--primary);
+}
+p, h1, h2, h3, a {
+    color: var(--primary);
+    text-decoration: none;
+}
+h2 {
+    font-size: 1.75em;
+}
+button, .button {
+    display: inline-block;
+    background-color: var(--gray);
+    border: none;
+    padding: 0.75em;
+    border-radius: 2em;
+    font-weight: bold;
+    width: 100%;
+    text-align: left;
+    white-space: nowrap;
+}
+button.inline, .button.inline {
+    display: inline-block;
+    width: auto;
+    text-align: center;
+}
+.description {
+    color: var(--description);
+}
+
+/* content styles */
+body {
+    background-color: var(--gray);
+}
+/* the main containers inside the body */
+body > div {
+    padding: 1em;
+    background-color: var(--white);
+}
+body > div:not(:first-of-type) {
+    margin-top: 0.5em;
+}
+.scroll-h {
+    overflow-x: scroll;
+}
+/* content inside the main containers */
+img {
+    max-width: 100%;
+}
+
+
+/* grids to space out elements horizontally */
+.grid {
+    display: grid;
+    grid-auto-flow: column;
+    align-content: center;
+    text-align: center;
+    column-gap: 0.5em;
+}
+
+/* navigation */
+nav {
+    position: sticky;
+    box-sizing: border-box;
+    width: 100%;
+    bottom: 0;
+    padding: 2em;
+    background: var(--white);
+    box-shadow: 0 -3px 4px var(--shadow);
+}
+nav a:not(.active) {
+    opacity: 0.25;
+}
