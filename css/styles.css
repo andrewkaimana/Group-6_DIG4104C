@@ -1,28 +1,65 @@
 /* variables */
 :root {
-    --primary: #222A34;
+    --primary: #222a34;
     --white: #ffffff;
-    --description: #4F4F4F;
-    --gray: #EEEEEE;
-    --accent: #FFB902;
+    --description: #4f4f4f;
+    --gray: #eeeeee;
+    --accent: #ffb902;
     --shadow: rgb(0 0 0 / 0.12);
-    -webkit-overflow-scrolling:touch;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* typography */
+@font-face {
+    font-family: "Uber Move Text Regular";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Uber Move Text Regular"), url("../assets/fonts/UberMoveTextRegular.woff") format("woff");
+}
+@font-face {
+    font-family: "Uber Move Text Light";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Uber Move Text Light"), url("../assets/fonts/UberMoveTextLight.woff") format("woff");
+}
+@font-face {
+    font-family: "Uber Move Text Medium";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Uber Move Text Medium"), url("../assets/fonts/UberMoveTextMedium.woff") format("woff");
+}
+@font-face {
+    font-family: "Uber Move Text Bold";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Uber Move Text Bold"), url("../assets/fonts/UberMoveTextBold.woff") format("woff");
+}
 :root {
     font-size: 12px;
-    font-family: sans-serif;
+    font-family: "Uber Move Text Regular";
     color: var(--primary);
 }
-p, h1, h2, h3, a {
+p,
+h1,
+h2,
+h3,
+a {
     color: var(--primary);
     text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Uber Move Text Bold";
 }
 h2 {
     font-size: 1.75em;
 }
-button, .button {
+button,
+.button {
     display: inline-block;
     background-color: var(--gray);
     border: none;
@@ -33,7 +70,8 @@ button, .button {
     text-align: left;
     white-space: nowrap;
 }
-button.inline, .button.inline {
+button.inline,
+.button.inline {
     display: inline-block;
     width: auto;
     text-align: center;
@@ -41,10 +79,29 @@ button.inline, .button.inline {
 .description {
     color: var(--description);
 }
+.thin {
+    font-family: "Uber Move Text Light";
+}
+
+/* inputs */
+input {
+    color: var(--primary);
+    padding: 1em;
+    background: var(--gray);
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input::placeholder {
+    color: var(--primary);
+    opacity: 1;
+}
 
 /* content styles */
 body {
-    background-color: var(--gray);
+    background-color: var(--white);
+    padding-bottom: 5em;
 }
 /* the main containers inside the body */
 body > div {
@@ -52,16 +109,18 @@ body > div {
     background-color: var(--white);
 }
 body > div:not(:first-of-type) {
-    margin-top: 0.5em;
+    border-top: 0.5em solid var(--gray);
 }
 .scroll-h {
     overflow-x: scroll;
+}
+body.singleContent {
+    display: grid;
 }
 /* content inside the main containers */
 img {
     max-width: 100%;
 }
-
 
 /* grids to space out elements horizontally */
 .grid {
@@ -71,10 +130,30 @@ img {
     text-align: center;
     column-gap: 0.5em;
 }
+.tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+.tiles > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    background-color: var(--description);
+}
+
+.tiles > *::before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 0;
+    padding-bottom: 100%;
+}
 
 /* navigation */
 nav {
-    position: sticky;
+    position: fixed;
     box-sizing: border-box;
     width: 100%;
     bottom: 0;
